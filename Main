@@ -1,0 +1,41 @@
+//Add scanner
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int guessRecord = 10;
+        //make new scanner
+        Scanner guess = new Scanner(System.in);
+        NumberGame guessingGame = new NumberGame();
+        //make a random number
+        int random = guessingGame.randomNum();
+        //Print “Hello! Would you like to play the guessing game? Yes/No”
+        System.out.println("Hello! Would you like to play the guessing game? Yes/No");
+        //If input is “Yes”, print “Great! Choose a number between 1 and 1000!”
+        String userInput = guess.nextLine();
+        if(userInput.equals("Yes")){
+            System.out.println("Great! Choose a number between 1 and 1000!");
+        }
+        //If input is “No”, print “Then what are you here for?”
+        if(userInput.equals("No")){
+            System.out.println("Then what are you here for?");
+            
+        }
+        int numGuess = 0;
+        while((guessRecord > 0) && numGuess != random) {
+            //        Check for guess
+//        Int numGuess = int (guess)
+            numGuess = guess.nextInt();
+            //Int rightwrong = RightOrWrong(numGuess, random)
+            int rightwrong = guessingGame.RightOrWrong(numGuess, random);
+            //Int guessesleft = guessesLeft(guesses, rightwrong)
+            int guessesleft = guessingGame.guessesLeft(rightwrong);
+            //printResult(rightwrong, guessesleft)
+            guessingGame.printResult(rightwrong, guessesleft);
+            guessRecord--;
+        }
+        if(numGuess == 0){
+            System.out.println("You're out of guesses!");
+        }
+    }
+}
