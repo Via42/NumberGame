@@ -1,60 +1,60 @@
 public class NumberGame{
 
-    int guessesStart = 20;
+    private int guessesStart = 10;
     public int randomNum(){
         //Chooses a random number between 1 and 1000.
         int randomNum = (int) ((Math.random()*1000)+1);
         //Returns the random number.
         return randomNum;
     }
-//Input of user’s guess and the random number generated
-public int RightOrWrong (int userguess, int randomNum){
+    //Input of user’s guess and the random number generated
+    public int RightOrWrong (int userguess, int randomNum){
         //Checks if user’s guess is equal to random number
-    boolean equal = (userguess == randomNum);
-    //If equal, return 1
-    if(equal){
-        return 1;
-    }
-    //If !equal, check if user’s guess is higher or lower
-    else{
-        //If higher, return 2
-        if(userguess > randomNum){
-            return 2;
+        boolean equal = (userguess == randomNum);
+        //If equal, return 1
+        if(equal){
+            return 1;
         }
-        //Else (if lower), return 3
+        //If !equal, check if user’s guess is higher or lower
         else{
-            return 3;
+            //If higher, return 2
+            if(userguess > randomNum){
+                return 2;
+            }
+            //Else (if lower), return 3
+            else{
+                return 3;
+            }
         }
     }
-}
-//Input of RightOrWrong
-public int guessesLeft(int rightwrong){
-       //While guessesLeft > 0, when user guesses, guessesLeft reduces by 1.
-    if (guessesStart > 0){
-        //If RightOrWrong returns 1, returns guessesLeft
-        if (rightwrong == 1){
-            guessesStart--;
+    //Input of RightOrWrong
+    public int guessesLeft(int rightwrong){
+        //While guessesLeft > 0, when user guesses, guessesLeft reduces by 1.
+        if (guessesStart > 0){
+            //If RightOrWrong returns 1, returns guessesLeft
+            if (rightwrong == 1){
+                guessesStart--;
+                return guessesStart;
+            }
+            //If RightOrWrong returns (2 or 3) and guessesLeft > 0, returns guessesLeft
+            if((rightwrong == 2) || (rightwrong == 3)){
+                guessesStart--;
+                return guessesStart;
+            }
+        }
+        //When guessesLeft = 0, returns 3
+        if (guessesStart == 0){
             return guessesStart;
         }
-        //If RightOrWrong returns (2 or 3) and guessesLeft > 0, returns guessesLeft
-        if((rightwrong == 2) || (rightwrong == 3)){
-            guessesStart--;
-            return guessesStart;
-        }
+        return 4;
     }
-    //When guessesLeft = 0, returns 3
-    if (guessesStart == 0){
-        return guessesStart;
-    }
-    return 4;
-}
 
-public void printResult (int rightorwrong, int guessLeft){
+    public void printResult (int rightorwrong, int guessLeft){
         //If rightorwrong = 1, print “Great job! You got it right with (guessesLeft) guesses left!
         if (rightorwrong == 1){
             System.out.println("Great job! You got it right with " + guessLeft + " guesses left!");
         }
-            //If rightorwrong = 2 and guessLeft > 0, print “Woah, too high! Go lower!”
+        //If rightorwrong = 2 and guessLeft > 0, print “Woah, too high! Go lower!”
         else if ((rightorwrong == 2) && guessLeft >0){
             System.out.println("Woah, too high! Go lower! You have " + guessLeft + " guesses remaining!");
         }
