@@ -7,6 +7,7 @@ public class Main {
         //make new scanner
         Scanner guess = new Scanner(System.in);
         NumberGame guessingGame = new NumberGame();
+        System.out.println(guessingGame.toString());
         //make a random number
         int random = guessingGame.randomNum();
         //Print “Hello! Would you like to play the guessing game? Yes/No”
@@ -19,12 +20,12 @@ public class Main {
         //If input is “No”, print “Then what are you here for?”
         if(userInput.equals("No")){
             System.out.println("Then what are you here for?");
-
+            System.exit(1);
         }
         int numGuess = 0;
         while((guessRecord > 0) && numGuess != random) {
             //        Check for guess
-            // Int numGuess = int (guess)
+//        Int numGuess = int (guess)
             numGuess = guess.nextInt();
             //Int rightwrong = RightOrWrong(numGuess, random)
             int rightwrong = guessingGame.RightOrWrong(numGuess, random);
@@ -39,3 +40,4 @@ public class Main {
         }
     }
 }
+
