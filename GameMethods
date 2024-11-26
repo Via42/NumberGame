@@ -63,4 +63,7 @@ public class NumberGame{
             System.out.println("Not quite! Try a higher number! " + guessLeft + " guesses left!");
         }
     }
+public String toString() {
+        return "NumberGame{" + "guessesStart=" + guessesStart + '}';
+    }
 }
