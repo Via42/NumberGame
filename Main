@@ -39,8 +39,5 @@ public class Main {
             System.out.println("You're out of guesses!");
         }
     }
-public String toString() {
-        return "NumberGame{" + "guessesStart=" + guessesStart + '}';
-    }
 }
 
