@@ -7,7 +7,6 @@ public class Main {
         //make new scanner
         Scanner guess = new Scanner(System.in);
         NumberGame guessingGame = new NumberGame();
-        System.out.println(guessingGame.toString());
         //make a random number
         int random = guessingGame.randomNum();
         //Print “Hello! Would you like to play the guessing game? Yes/No”
